@@ -1,10 +1,9 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
 
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
+    files: ["**/*.{js,mjs,cjs}"], // Removed jsx since React isn't involved
     languageOptions: {
       globals: {
         ...globals.browser, // Includes browser globals
@@ -15,12 +14,4 @@ export default [
     },
   },
   pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  {
-    settings: {
-      react: {
-        version: "detect", // Automatically detect the React version
-      },
-    },
-  },
 ];
